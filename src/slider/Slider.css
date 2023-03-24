@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  /* must add padding or hight*/
+  height: 350px;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  /* to change svg color visit -> https://codepen.io/sosuke/pen/Pjoqqp */
+}
+
+.left-arrow {
+  left: 25px;
+}
+
+.right-arrow {
+  right: 25px;
+}
+
+@media (max-width: 639px) {
+  .left-arrow {
+    left: 0;
+  }
+  .right-arrow {
+    right: 0;
+  }
+}
+
+.slider-card {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: 500ms;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+.card--active {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  z-index: 99;
+}
+
+.card--left {
+  transform: translateY(-50%) translateX(-100%) scale(0.8);
+  transition: 500ms;
+  opacity: 0.3;
+}
+
+.card--right {
+  transform: translateY(-50%) translateX(100%) scale(0.8);
+  transition: 500ms;
+  opacity: 0.3;
+}
+
+/* Here (.content) you can change any thing to build your slider, but don't forgotn the width */
+.content {
+  padding: 20px;
+  width: 400px;
+  border-radius: 20px;
+  border-radius: 12px;
+}
+.content img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+@media (max-width: 639px) {
+  .content {
+    width: 250px;
+  }
+}
